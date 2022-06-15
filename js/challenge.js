@@ -31,7 +31,8 @@ pause.addEventListener("click", function(){
         minus.disabled = true,
         plus.disabled = true,
         heart.disabled = true,
-        submit.disabled = true
+        submit.disabled = true,
+        clearInterval(startTimer)
 ):(
         this.innerText = "pause",
         minus.disabled = false,
