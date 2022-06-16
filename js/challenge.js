@@ -2,15 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     setInterval(startTimer, 1000);
 })
-// Set the timer interval
-let startTime = 0;
 
-
-// Function to set the timer interval
-const startTimer = () => {
-    startTime += 1
-    counter.innerHTML = startTime;   
-}
 
 const pause =document.getElementById("pause");
 const minus =document.getElementById("minus");
@@ -23,6 +15,16 @@ let likes =document.querySelector(".likes");
 const commentContainer = document.querySelector("#list");
 const form = document.querySelector("form");
 
+
+// Set the timer interval
+let startTime = 0;
+
+
+// Function to set the timer interval
+const startTimer = () => {
+    startTime += 1
+    counter.innerHTML = startTime;   
+}
 //pause button function
 pause.addEventListener("click", function(){
     currentvalue =document.getElementById("pause").innerText;
@@ -55,12 +57,14 @@ minus.addEventListener("click", function(){
 });
 //heart button function
 heart.addEventListener("click", () => {
-    const likesList = document.createElement("li");
-    likesList.innerHTML = `${counterElement.innerHTML} has been liked `;
-    likes.append(likesList);
+    let likesList = document.createElement("li");
+    let ul = document.createElement("ul");
+    let likecontainer = document.querySelector(".likes");
+    likesList.textContent = `${counter.innerHTML} has been liked `;
+    ul.appendChild(likesList);
+    likecontainer.appendChild(ul);
+    ul.style.listStyleType = "none";
 })
-
-
 //submit button function
 
 const onSubmit = (e) => {
