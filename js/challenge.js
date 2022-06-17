@@ -67,16 +67,18 @@ heart.addEventListener("click", () => {
 })
 //submit button function
 
-const onSubmit = (e) => {
-    e.preventDefault();
-   
-    const inputValue = e.target["comment-input"].value;
-    const commentContainer = document.querySelector("#list");
-    const comment = document.createElement("p");
+const onSubmit = (event) => {
+    event.preventDefault();
+    let comment = document.createElement("li");
+    let ul= document.createElement("ul");
+    let commentContainer = document.getElementById("list");
+    
+    const inputValue = document.getElementById("comment-input").value;   
+
     comment.textContent = inputValue;
-    commentContainer.appendChild(comment)
-    form.reset()
+    ul.appendChild(comment);
+    commentContainer.appendChild(ul);
 }
 
-submit.addEventListener("submit", onSubmit);
+form.addEventListener("submit", onSubmit);
   
